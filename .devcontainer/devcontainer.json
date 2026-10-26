@@ -1,0 +1,17 @@
+{
+  "name": "Python & Oracle Client",
+  "image": "://microsoft.com",
+  
+  // Instala libaio1, necesario para el cliente de Oracle en Linux
+  "updateContentCommand": "sudo apt-get update && sudo apt-get install -y libaio1 wget unzip",
+
+  "postCreateCommand": "chmod +x install_oracle.sh && ./install_oracle.sh",
+
+  // Configura las variables de entorno del contenedor
+  "containerEnv": {
+    "LD_LIBRARY_PATH": "/opt/oracle/instantclient"
+  },
+  "remoteEnv": {
+    "LD_LIBRARY_PATH": "/opt/oracle/instantclient"
+  }
+}
